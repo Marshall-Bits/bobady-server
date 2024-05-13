@@ -7,7 +7,8 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/questions", (req, res, next) => {
-  Question.find()
+  const category = req.query.category;
+  Question.find({ category })
     .then((questions) => {
       res.json(questions);
     })
@@ -17,7 +18,8 @@ router.get("/questions", (req, res, next) => {
 });
 
 router.get("/challenges", (req, res, next) => {
-  Challenge.find()
+  const category = req.query.category;
+  Challenge.find({ category })
     .then((challenges) => {
       res.json(challenges);
     })
