@@ -28,4 +28,27 @@ router.get("/challenges", (req, res, next) => {
     });
 });
 
+router.post("/questions", (req, res, next) => {
+  const { question, category } = req.body;
+  console.log(req.body);
+  Question.create({ question, category })
+    .then((question) => {
+      res.json(question);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.post("/challenges", (req, res, next) => {
+  const { challenge, category } = req.body;
+  Challenge.create({ challenge, category })
+    .then((challenge) => {
+      res.json(challenge);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
