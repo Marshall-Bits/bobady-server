@@ -19,7 +19,7 @@ router.get("/questions", (req, res, next) => {
 
 router.get("/challenges", (req, res, next) => {
   const category = req.query.category;
-  Challenge.find({ category })
+  Challenge.find(category === "spicy" ? {} : { category })
     .then((challenges) => {
       res.json(challenges);
     })
