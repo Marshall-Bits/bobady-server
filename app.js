@@ -11,6 +11,9 @@ require("./config")(app);
 const indexRoutes = require("./routes/index.routes");
 app.use("/api", indexRoutes);
 
+const audioRoutes = require("./routes/audio.routes");
+app.use("/api", audioRoutes);
+
 require("./error-handling")(app);
 
 module.exports = app;
